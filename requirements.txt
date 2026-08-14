@@ -1,0 +1,5 @@
+# Detector-free cabbage crop-row guidance -- runtime dependencies.
+# The pipeline is pure classical computer vision: no deep-learning
+# framework, no GPU, no training. Only NumPy and OpenCV are required.
+numpy>=1.22
+opencv-python>=4.6

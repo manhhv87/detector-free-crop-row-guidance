@@ -1,0 +1,94 @@
+# =====================================================================
+# Detector-free cabbage crop-row guidance project.
+# Tracked = the python pipeline (*.py), run_all.sh, requirements.txt,
+# README, paper sources (paper/**/*.tex, paper/refs.bib), the four used
+# paper figures (paper/figures/*.png, paper/figures/IMG_*.jpg) and the
+# compiled paper/main.pdf. Everything large, binary, generated or local
+# stays out, per the rules below.
+# =====================================================================
+
+# ---- field dataset: imagery stays local, derived tables are published ----
+# The CabbageNav frames and videos are not released publicly (see the paper's
+# Data and Code Availability), so the imagery stays out. The frame manifest and
+# both annotators' guidance-line labels carry no imagery -- only frame names,
+# timestamps and clicked coordinates -- and are published so the reported
+# numbers can be recomputed.
+datasets/*
+!datasets/CabbageNav/
+datasets/CabbageNav/*
+!datasets/CabbageNav/frames/
+datasets/CabbageNav/frames/*
+!datasets/CabbageNav/frames/manifest.csv
+!datasets/CabbageNav/frames/labels1.json
+!datasets/CabbageNav/frames/labels2.json
+
+# ---- generated evaluation outputs ----
+# The per-frame CSVs and the analysis scripts are published (no imagery in them).
+# The review/quality contact sheets ARE renders of the frames, so they stay out.
+results/*
+!results/*.csv
+!results/*.py
+!results/*.txt
+results/*.png
+results_*.csv
+calib_*.csv
+gtlines_*.json
+
+# ---- stray model binaries (legacy detector era; never commit) ----
+weights/
+runs/
+*.pt
+*.pth
+*.onnx
+*.engine
+*.rknn
+*.torchscript
+
+# ---- bulky local EndNote reference-PDF library (citations live in refs.bib) ----
+paper/ref/
+
+# ---- manuscript: not published ----
+# The paper (LaTeX sources, figures and the compiled PDF) is deliberately kept out
+# of the public repository; this release carries the code and the derived tables only.
+paper/
+
+# ---- LaTeX build artifacts ----
+paper/*.aux
+paper/*.bcf
+paper/*.bbl
+paper/*.bbl-SAVE-ERROR
+paper/*.blg
+paper/*.log
+paper/*.out
+paper/*.run.xml
+paper/*.toc
+paper/*.fls
+paper/*.fdb_latexmk
+paper/*.synctex.gz
+paper/sections/*.aux
+
+# ---- python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.venv/
+venv/
+
+# ---- large local docs / field media (NOT part of the codebase) ----
+*.MOV
+*.mov
+*.mp4
+*.avi
+/main.pdf
+/*.docx
+
+# ---- OS ----
+.DS_Store
+Thumbs.db
+
+# ---- local tooling, not part of the published artefact ----
+clean.bat
+paper/clean.bat
+paper/figures/IMG_*.jpg
+paper/.vscode/
